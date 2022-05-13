@@ -1,4 +1,4 @@
-package com.michaell.looping.builtin;
+package com.michaell.looping.builtin.tests;
 
 import com.michaell.looping.ScriptParameters;
 import com.michaell.looping.ScriptTemplate;
