@@ -1,5 +1,29 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.michaell'
+            artifactId = 'jlooping'
+            version = '1.0-SNAPSHOT'
+
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/michaell4438/jlooping"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }
 
 group 'com.michaell'
