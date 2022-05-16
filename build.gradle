@@ -3,6 +3,9 @@ plugins {
     id 'maven-publish'
 }
 
+group 'com.michaell'
+version '1.0-SNAPSHOT'
+
 publishing {
     publications {
         maven(MavenPublication) {
@@ -16,7 +19,6 @@ publishing {
 
     repositories {
         maven {
-            name = "Repsy"
             url = "https://repo.repsy.io/mvn/michaell4438/jlooping"
             credentials {
                 username = System.getenv("REPSY_USR")
@@ -25,9 +27,6 @@ publishing {
         }
     }
 }
-
-group 'com.michaell'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()

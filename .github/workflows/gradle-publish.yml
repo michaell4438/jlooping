@@ -24,5 +24,5 @@ jobs:
         with:
           arguments: publish
         env:
-          REPSY_USR: ${{ secrets.repsy_usr }}
-          REPSY_PSSWD: ${{ secrets.repsy_password }}
+          REPSY_USR: ${{ secrets.REPSY_USR }}
+          REPSY_PSSWD: ${{ secrets.REPSY_PSSWD }}
