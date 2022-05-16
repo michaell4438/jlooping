@@ -9,7 +9,7 @@ public abstract class ScriptTemplate {
         this.needsInit = needsInit;
     }
 
-    public void init(ScriptParameters scriptParametersGlobal) {
+    public void init(ScriptParameters parameters) {
         needsInit = false;
     }
 
