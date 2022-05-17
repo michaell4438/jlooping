@@ -6,7 +6,7 @@
 name: Publish package to Maven
 on:
   release:
-    - ["created"]
+    types: [created]
 jobs:
   publish:
     runs-on: ubuntu-latest
