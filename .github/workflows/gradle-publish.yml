@@ -3,11 +3,10 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Publish package to GitHub Packages
+name: Publish package to Maven
 on:
-  push:
-    branches:
-      - "master"
+  release:
+    - ["created"]
 jobs:
   publish:
     runs-on: ubuntu-latest
