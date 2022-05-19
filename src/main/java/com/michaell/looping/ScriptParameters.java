@@ -37,7 +37,9 @@ public class ScriptParameters {
         }
     }
 
-    /*
+    /**
+      * <p>This method may not be needed in some cases, but was still added</p>
+     */
     public void updateGlobalVariable(GlobalVariable variable) {
         try {
             globalVariables.remove(getGlobalVariable(variable.name));
@@ -46,7 +48,6 @@ public class ScriptParameters {
             globalVariables.add(variable);
         }
     }
-    */
 
     public void doOneLoop() {
         int currentIndex = runner.scriptIndex;
