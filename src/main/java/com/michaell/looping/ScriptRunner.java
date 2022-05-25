@@ -7,6 +7,7 @@ public class ScriptRunner {
     public ArrayList<ScriptTemplate> scripts = new ArrayList<>();
     public int scriptIndex = 0;
     public ScriptParameters scriptParametersGlobal = new ScriptParameters(this);
+    public boolean shouldExit = false;
 
     public void addScript(ScriptTemplate script) throws DuplicateScriptException {
         String name = script.name;
@@ -46,7 +47,7 @@ public class ScriptRunner {
     }
 
     public void runConstantly() {
-        while (scripts.size() > 0) {
+        while (scripts.size() > 0 & !shouldExit) {
             runOneScript();
         }
     }
@@ -60,6 +61,10 @@ public class ScriptRunner {
             runOneScript();
             currentTime = new Date().getTime();
         }
+    }
+
+    public void setShouldExit(boolean shouldExit) {
+        this.shouldExit = shouldExit;
     }
 
     public static class ScriptNotFoundException extends Exception {
