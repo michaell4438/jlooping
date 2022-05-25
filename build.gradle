@@ -4,14 +4,14 @@ plugins {
 }
 
 group 'com.michaell'
-version '1.0.2'
+version '1.1.0'
 
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'com.michaell'
             artifactId = 'jlooping'
-            version = '1.0.2'
+            version = '1.1.0'
 
             from components.java
         }
