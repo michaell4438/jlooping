@@ -3,7 +3,7 @@ package com.michaell.looping;
 import java.util.ArrayList;
 
 public class ScriptParameters {
-    public ArrayList<Request> availableRequests = new ArrayList<>();
+    private ArrayList<Request> availableRequests = new ArrayList<>();
     public ArrayList<GlobalVariable> globalVariables = new ArrayList<>();
     public ScriptRunner runner;
 
@@ -19,6 +19,31 @@ public class ScriptParameters {
             }
         }
         throw new RequestNotFoundException(clazz.getName());
+    }
+
+    public static class DuplicateRequestException extends Exception {
+        public DuplicateRequestException(String message) {
+            super(message);
+        }
+    }
+
+    public void addRequest(Request request) throws DuplicateRequestException {
+        try {
+            getRequest(request.name);
+            throw new DuplicateRequestException(request.name);
+        } catch (RequestNotFoundException e) {
+            availableRequests.add(request);
+        }
+    }
+
+    public Request getRequest(String name) throws RequestNotFoundException {
+        for (Request request:
+        availableRequests) {
+            if (request.name.equals(name)) {
+                return request;
+            }
+        }
+        throw new RequestNotFoundException(name);
     }
 
     public GlobalVariable getGlobalVariable(String name) throws VariableNotFoundException {
@@ -72,6 +97,7 @@ public class ScriptParameters {
     }
 
     public static abstract class Request {
+        public String name;
         public abstract Object issueRequest(Object parameters);
         public abstract Class getOutputType();
         public abstract Class getInputType();
