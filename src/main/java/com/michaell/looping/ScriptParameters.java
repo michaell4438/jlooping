@@ -98,6 +98,11 @@ public class ScriptParameters {
 
     public static abstract class Request {
         public String name;
+
+        public Request(String name) {
+            this.name = name;
+        }
+
         public abstract Object issueRequest(Object parameters);
         public abstract Class getOutputType();
         public abstract Class getInputType();
