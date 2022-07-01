@@ -28,8 +28,8 @@ public class ScriptRunner {
         throw new ScriptNotFoundException(name);
     }
 
-    public void addRequest(ScriptParameters.Request request) {
-        scriptParametersGlobal.availableRequests.add(request);
+    public void addRequest(ScriptParameters.Request request) throws ScriptParameters.DuplicateRequestException {
+        scriptParametersGlobal.addRequest(request);
     }
 
     public void runOneScript() {

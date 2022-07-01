@@ -7,7 +7,11 @@ import com.michaell.looping.builtin.ConvertToScript;
 public class HelloWorldTest {
     public static void main(String[] args) {
         ScriptRunner runner = new ScriptRunner();
-        runner.addRequest(new HelloWorldRequest());
+        try {
+            runner.addRequest(new HelloWorldRequest());
+        } catch (ScriptParameters.DuplicateRequestException e) {
+            throw new RuntimeException(e);
+        }
         ScriptParameters.GlobalVariable<Integer> var = new ScriptParameters.GlobalVariable<>("counter");
         var.setValue(0);
         runner.scriptParametersGlobal.addGlobalVariable(var);
