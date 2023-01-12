@@ -1,5 +1,5 @@
 # jlooping
-A simple way to have multiple scripts in a singe-thread environment, almost like a state machine, but not.
+A nondeterministic infinite automaton for Java to emulate concurrency inside synchronous environments lacking JEP 425.
 
 This allows you to have multiple pieces of code run practically side by side while keeping code clean. Say you have a function the prints `1` and a function that prints `2`. You could do a while loop like this:
 ```java
